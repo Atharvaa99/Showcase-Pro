@@ -20,6 +20,7 @@
 }
 
 body{
+    background-color: #f5f5f7;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     letter-spacing: 1px;
     line-height: 1.2;
@@ -29,12 +30,9 @@ body{
 .container{
     container-type: Inline-size;
     container-name: layout;
-    background-color: #f5f5f7;
     padding: clamp(0.5rem,2cqi,1rem);
     min-height: max-content;
-    min-width: max-content;
     height: 100vh;
-    max-height: max-content;
 
 }
 
