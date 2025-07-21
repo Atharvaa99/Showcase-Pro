@@ -15,6 +15,7 @@
         width: 17%;
     }
     .card-wrapper{
+        padding-left: 1rem;
         grid-template-columns: auto;
     }
 }
