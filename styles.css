@@ -32,7 +32,9 @@ body{
     background-color: #f5f5f7;
     padding: clamp(0.5rem,2cqi,1rem);
     min-height: max-content;
+    min-width: max-content;
     height: 100vh;
+    max-height: max-content;
 
 }
 
