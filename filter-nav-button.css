@@ -1,0 +1,41 @@
+/* Filter */
+.filter-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: clamp(0.9rem, 2cqi, 2.5rem);
+    gap: clamp(0.4rem, 2cqi, 1rem);
+    text-align: center;
+}
+
+.filter-button {
+    width: clamp(12rem, 8cqi, 14rem);
+    padding: clamp(0.3rem, 2cqi, 0.5rem);
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(20px);
+}
+
+.filter-button:hover {
+    box-shadow: 0 0 10px rgb(230, 135, 176, 1);
+    transform: scale(1.03);
+}
+
+.filter-button:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 10px rgba(230, 135, 175, 0.5);
+}
+
+.glow {
+    animation: auraPulse 2s ease-in-out infinite;
+}
+
+.filter-button:has(input:checked) {
+    background: rgba(230, 135, 175, 0.1);
+    box-shadow: 0 0 15px rgba(230, 135, 175, 0.6);
+    border: 2px solid rgba(230, 135, 175);
+    transform: scale(1.03);
+}
