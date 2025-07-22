@@ -1,3 +1,24 @@
+/* Self Aware Containers*/
+@container layout (max-width:700px){
+    .card{
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem;
+    }
+    .card h2{
+        font-size: clamp(1.2rem,2.5cqi,1.4rem);
+    }
+    .card h4{
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+}
+@container layout (max-width:500px){
+    .card{
+        aspect-ratio: unset;
+        min-height: 240px;
+    }
+}
 body{
     background-color: #f5f5f7;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -7,7 +28,7 @@ body{
     margin: 0;
 }
 .container{
-    container-type: Inline-size;
+    container-type: inline-size;
     container-name: layout;
     padding: clamp(0.5rem,2cqi,1rem);
     min-height: max-content;
@@ -31,7 +52,7 @@ body{
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     transition: all 0.5s ease-out;
-    backdrop-filter: blur(1000px);
+    backdrop-filter: blur(20px);
 }
 .filter-button:hover{
     box-shadow: 0 0 10px rgb(230, 135, 176,1) ;
@@ -53,10 +74,10 @@ body{
  .card{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    min-height: 320px;
     padding: clamp(1rem,3cqi,2rem) ;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.5s ease;
  }
-
-
