@@ -1,108 +1,153 @@
 /* Self Aware Containers*/
-@container layout (max-width:700px){
-    .card{
+@container layout (max-width:700px) {
+    .card {
         flex-direction: column;
         gap: 1rem;
         padding: 1.2rem;
     }
-    .card h2{
-        font-size: clamp(1.2rem,2.5cqi,1.4rem);
+
+    .card h2 {
+        font-size: clamp(1.2rem, 2.5cqi, 1.4rem);
     }
-    .card h4{
+
+    .card h4 {
         font-size: 0.7rem;
         padding: 0.2rem 0.6rem;
     }
 }
-@container layout (max-width:500px){
-    .card{
+
+@container layout (max-width:500px) {
+    .card {
         aspect-ratio: unset;
         min-height: 240px;
     }
 }
-@container layout (min-width:700px) and (max-width:1000px){
-    .card-wrapper{
+
+@container layout (min-width:700px) and (max-width:1000px) {
+    .card-wrapper {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: clamp(1rem,2cqi,2rem);
+        gap: clamp(1rem, 2cqi, 2rem);
     }
-    .card{
+
+    .card {
         padding: clamp(1rem, 2.5cqi, 1.5rem);
     }
-    .card h2{
-        font-size: clamp(1.3rem,2.5cqi,2.3rem);
+
+    .card h2 {
+        font-size: clamp(1.3rem, 2.5cqi, 2.3rem);
     }
-    .card h4{
-        font-size: clamp(0.4rem,2.2cqi,1rem);
+
+    .card h4 {
+        font-size: clamp(0.4rem, 2.2cqi, 1rem);
     }
-    .filter-button{
-        width: clamp(8rem,6cqi,10rem);
-        font-size: clamp(0.8rem, 2cqi,1.2rem);
+
+    .filter-button {
+        width: clamp(8rem, 6cqi, 10rem);
+        font-size: clamp(0.8rem, 2cqi, 1.2rem);
     }
 }
 
-body{
+body {
     background-color: #f5f5f7;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     letter-spacing: 1px;
     line-height: 1.2;
     word-spacing: 2px;
     margin: 0;
 }
-.container{
+
+.container {
     container-type: inline-size;
     container-name: layout;
-    padding: clamp(0.5rem,2cqi,1rem);
+    padding: clamp(0.5rem, 2cqi, 1rem);
     min-height: max-content;
     height: 100vh;
 }
 
 /* Filter */
-.filter-nav{
+.filter-nav {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
-    font-size: clamp(0.9rem,2cqi,2.5rem);
-    gap: clamp(0.4rem,2cqi,1rem);
+    justify-content: space-between;
+    font-size: clamp(0.9rem, 2cqi, 2.5rem);
+    gap: clamp(0.4rem, 2cqi, 1rem);
     text-align: center;
 }
-.filter-button{
-    width: clamp(12rem,8cqi,14rem);
-    padding: clamp(0.3rem,2cqi,0.5rem);
+
+.filter-button {
+    width: clamp(12rem, 8cqi, 14rem);
+    padding: clamp(0.3rem, 2cqi, 0.5rem);
     height: auto;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    transition: all 0.5s ease-out;
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+    cursor: pointer;
     backdrop-filter: blur(20px);
 }
-.filter-button:hover{
-    box-shadow: 0 0 10px rgb(230, 135, 176,1) ;
+
+.filter-button:hover {
+    box-shadow: 0 0 10px rgb(230, 135, 176, 1);
     transform: scale(1.03);
 }
- /* Card Grid */
- .card-wrapper{
-    margin-top: clamp(1rem,2cqi,2rem); 
+
+.filter-button:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 10px rgba(230, 135, 175, 0.5);
+}
+.glow{
+    animation: auraPulse 2s ease-in-out infinite;
+}
+.filter-button:has(input:checked) {
+    background: rgba(230,135,175,0.1);
+    box-shadow: 0 0 15px rgba(230, 135, 175, 0.6);
+    border: 2px solid rgba(230, 135, 175);
+    transform: scale(1.03);
+}
+
+
+/* Card Grid */
+.card-wrapper {
+    margin-top: clamp(1rem, 2cqi, 2rem);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(clamp(220px,30cqi,360px), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(clamp(220px, 30cqi, 360px), 1fr));
     gap: clamp(2rem, 3cqi, 3rem);
- }
- .card img{
-    width: clamp(12rem,10cqi,18rem);
-    height: clamp(8rem,8cqi,16rem);
+}
+
+.card img {
+    width: clamp(12rem, 10cqi, 18rem);
+    height: clamp(8rem, 8cqi, 16rem);
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
- }
- .card{
+}
+
+.card {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     min-height: 320px;
-    padding: clamp(1rem,3cqi,2rem) ;
+    padding: clamp(1rem, 3cqi, 2rem);
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: all 0.5s ease;
     will-change: transform, box-shadow;
- }
- .card:hover{
-    transform: translateY(2%) translateX(2%) scale(1.02) ;
-    z-index: 2;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
- }
+}
+
+@media (hover: hover) {
+    .card:hover {
+        transform: translateY(2%) scale(1.02);
+        z-index: 2;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@keyframes auraPulse {
+    0%{
+        box-shadow: 0 0 10px rgba(230, 135, 175, 0.3);
+    }
+    50%{
+        box-shadow: 0 0 20px rgba(230, 135, 175, 0.6);
+    }
+    100%{
+        box-shadow: 0 0 10px rgba(230, 135, 175, 0.3);
+    }
+}
