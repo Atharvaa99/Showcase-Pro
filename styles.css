@@ -35,7 +35,7 @@
     }
     .filter-button{
         width: clamp(8rem,6cqi,10rem);
-        font-size: clap(0.8rem, 2cqi,1.2rem);
+        font-size: clamp(0.8rem, 2cqi,1.2rem);
     }
 }
 
@@ -99,4 +99,10 @@ body{
     flex-direction: column;
     align-items: center;
     transition: all 0.5s ease;
+    will-change: transform, box-shadow;
+ }
+ .card:hover{
+    transform: translateY(2%) translateX(2%) scale(1.02) ;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
  }
