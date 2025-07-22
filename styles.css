@@ -120,12 +120,20 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.card {
+.card{
+    display: none ;
+}
+header:has(#web:checked) ~ main .card[data-category="web"],
+header:has(#mobile-app:checked) ~ main .card[data-category="mobile"],
+header:has(#desktop-app:checked) ~ main .card[data-category="desktop"],
+header:has(#games:checked) ~ main .card[data-category="game"],
+header:has(#ai:checked) ~ main .card[data-category="ai"],
+header:has(#data-A:checked) ~ main .card[data-category="data"]{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     min-height: 320px;
     padding: clamp(1rem, 3cqi, 2rem);
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     transition: all 0.5s ease;
