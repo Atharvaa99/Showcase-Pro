@@ -19,6 +19,26 @@
         min-height: 240px;
     }
 }
+@container layout (min-width:700px) and (max-width:1000px){
+    .card-wrapper{
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: clamp(1rem,2cqi,2rem);
+    }
+    .card{
+        padding: clamp(1rem, 2.5cqi, 1.5rem);
+    }
+    .card h2{
+        font-size: clamp(1.3rem,2.5cqi,2.3rem);
+    }
+    .card h4{
+        font-size: clamp(0.4rem,2.2cqi,1rem);
+    }
+    .filter-button{
+        width: clamp(8rem,6cqi,10rem);
+        font-size: clap(0.8rem, 2cqi,1.2rem);
+    }
+}
+
 body{
     background-color: #f5f5f7;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -33,7 +53,6 @@ body{
     padding: clamp(0.5rem,2cqi,1rem);
     min-height: max-content;
     height: 100vh;
-
 }
 
 /* Filter */
