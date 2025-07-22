@@ -119,7 +119,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
 .card {
   display: flex;
   flex-direction: column;
@@ -132,19 +131,25 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Hide cards that do NOT match selected filters */
-header:has(#web:checked) ~ main .card:not([data-category="web"]),
-header:has(#mobile-app:checked) ~ main .card:not([data-category="mobile"]),
-header:has(#desktop-app:checked) ~ main .card:not([data-category="desktop"]),
-header:has(#games:checked) ~ main .card:not([data-category="game"]),
-header:has(#ai:checked) ~ main .card:not([data-category="ai"]),
-header:has(#data-A:checked) ~ main .card:not([data-category="data"]) {
+/* Hide all cards by default when ANY filter is checked */
+header:has(#web:checked, #mobile-app:checked, #desktop-app:checked, #games:checked, #ai:checked, #data-A:checked)
+~ main .card {
   display: none;
 }
 
-/* Reset: if no filters are selected, show everything */
+/* Show cards matching checked filters */
+header:has(#web:checked) ~ main .card[data-category="web"],
+header:has(#mobile-app:checked) ~ main .card[data-category="mobile"],
+header:has(#desktop-app:checked) ~ main .card[data-category="desktop"],
+header:has(#games:checked) ~ main .card[data-category="game"],
+header:has(#ai:checked) ~ main .card[data-category="ai"],
+header:has(#data-A:checked) ~ main .card[data-category="data"] {
+  display: flex;
+}
+
+/* If NO filter is checked, show all */
 header:not(:has(#web:checked, #mobile-app:checked, #desktop-app:checked, #games:checked, #ai:checked, #data-A:checked))
-  ~ main .card {
+~ main .card {
   display: flex;
 }
 
