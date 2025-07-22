@@ -1,5 +1,11 @@
 /* Self Aware Containers*/
 @container layout (max-width:700px) {
+    .filter-nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(clamp(100px, 20cqi, 150px), 1fr));
+        gap: clamp(0.5rem, 2cqi, 1rem);
+        justify-content: center;
+    }
     .card {
         flex-direction: column;
         gap: 1rem;
@@ -94,11 +100,13 @@ body {
     transform: scale(0.96);
     box-shadow: 0 0 10px rgba(230, 135, 175, 0.5);
 }
-.glow{
+
+.glow {
     animation: auraPulse 2s ease-in-out infinite;
 }
+
 .filter-button:has(input:checked) {
-    background: rgba(230,135,175,0.1);
+    background: rgba(230, 135, 175, 0.1);
     box-shadow: 0 0 15px rgba(230, 135, 175, 0.6);
     border: 2px solid rgba(230, 135, 175);
     transform: scale(1.03);
@@ -119,38 +127,37 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: clamp(1rem, 3cqi, 2rem);
-  min-height: 320px;
-  border-radius: 10px;
-  transition: all 0.5s ease;
-  will-change: transform, box-shadow;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(1rem, 3cqi, 2rem);
+    min-height: 320px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    will-change: transform, box-shadow;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Hide all cards by default when ANY filter is checked */
-header:has(#web:checked, #mobile-app:checked, #desktop-app:checked, #games:checked, #ai:checked, #data-A:checked)
-~ main .card {
-  display: none;
+header:has(#web:checked, #mobile-app:checked, #desktop-app:checked, #games:checked, #ai:checked, #data-A:checked)~main .card {
+    display: none;
 }
 
 /* Show cards matching checked filters */
-header:has(#web:checked) ~ main .card[data-category="web"],
-header:has(#mobile-app:checked) ~ main .card[data-category="mobile"],
-header:has(#desktop-app:checked) ~ main .card[data-category="desktop"],
-header:has(#games:checked) ~ main .card[data-category="game"],
-header:has(#ai:checked) ~ main .card[data-category="ai"],
-header:has(#data-A:checked) ~ main .card[data-category="data"] {
-  display: flex;
+header:has(#web:checked)~main .card[data-category="web"],
+header:has(#mobile-app:checked)~main .card[data-category="mobile"],
+header:has(#desktop-app:checked)~main .card[data-category="desktop"],
+header:has(#games:checked)~main .card[data-category="game"],
+header:has(#ai:checked)~main .card[data-category="ai"],
+header:has(#data-A:checked)~main .card[data-category="data"] {
+    display: flex;
 }
 
 /* If NO filter is checked, show all */
-header:not(:has(#web:checked, #mobile-app:checked, #desktop-app:checked, #games:checked, #ai:checked, #data-A:checked))
-~ main .card {
-  display: flex;
+header:not(:has(#web:checked, #mobile-app:checked, #desktop-app:checked, #games:checked, #ai:checked, #data-A:checked))~main .card {
+    display: flex;
 }
 
 @media (hover: hover) {
@@ -162,13 +169,15 @@ header:not(:has(#web:checked, #mobile-app:checked, #desktop-app:checked, #games:
 }
 
 @keyframes auraPulse {
-    0%{
+    0% {
         box-shadow: 0 0 10px rgba(230, 135, 175, 0.3);
     }
-    50%{
+
+    50% {
         box-shadow: 0 0 20px rgba(230, 135, 175, 0.6);
     }
-    100%{
+
+    100% {
         box-shadow: 0 0 10px rgba(230, 135, 175, 0.3);
     }
 }
